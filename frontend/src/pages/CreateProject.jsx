@@ -1,6 +1,6 @@
-import { useNavigate } from "react-router-dom";
-import { useCreateProject } from "../hooks/apis/mutations/useCreateProject";
-import { Button, Layout, Space, Typography } from "antd";
+import { useNavigate } from 'react-router-dom';
+import { useCreateProject } from '../hooks/apis/mutations/useCreateProject';
+import { Button, Layout, Space, Typography } from 'antd';
 
 const CreateProject = () => {
   const { createProjectMutation } = useCreateProject();
@@ -9,34 +9,34 @@ const CreateProject = () => {
   const { Text, Title } = Typography;
 
   const layoutStyle = {
-    minHeight: "100vh",
-    backgroundColor: "#f0f2f5",
+    minHeight: '100vh',
+    backgroundColor: '#f0f2f5',
   };
 
   const headerStyle = {
-    backgroundColor: "#001529",
-    color: "#fff",
-    textAlign: "center",
+    backgroundColor: '#001529',
+    color: '#fff',
+    textAlign: 'center',
     // paddingLeft: "30px",
-    paddingTop: "10px",
+    paddingTop: '10px',
   };
 
   const contentStyle = {
-    margin: "200px auto",
-    padding: "20px",
-    backgroundColor: "#fff",
-    borderRadius: "8px",
-    boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
-    maxWidth: "600px",
-    textAlign: "center",
-    maxHeight: "150px",
+    margin: '200px auto',
+    padding: '20px',
+    backgroundColor: '#fff',
+    borderRadius: '8px',
+    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+    maxWidth: '600px',
+    textAlign: 'center',
+    maxHeight: '150px',
   };
 
   async function handleCreateProject() {
-    console.log("going to trigger the api ");
+    console.log('going to trigger the api ');
     try {
       const response = await createProjectMutation();
-      console.log("now we should redirect to editor");
+      console.log('now we should redirect to editor');
       navigate(`/project/${response.data}`);
     } catch (error) {
       console.log(error);
@@ -46,24 +46,22 @@ const CreateProject = () => {
 
   return (
     <Layout style={layoutStyle}>
-      {/* Header */}
       <Header style={headerStyle}>
-        <Title level={2} style={{ color: "#fff" }}>
+        <Title level={2} style={{ color: '#fff' }}>
           Code Box
         </Title>
       </Header>
 
-      {/* Content */}
       <Content style={contentStyle}>
-        <Space direction="vertical" size="large" align="center">
-          <Text type="secondary">
+        <Space direction='vertical' size='large' align='center'>
+          <Text type='secondary'>
             Click the button below to start a new project.
           </Text>
           <Button
-            type="primary"
-            size="large"
+            type='primary'
+            size='large'
             onClick={handleCreateProject}
-            style={{ width: "200px" }}
+            style={{ width: '200px' }}
           >
             Create Project
           </Button>
